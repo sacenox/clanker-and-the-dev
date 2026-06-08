@@ -11,6 +11,11 @@
   src: url('../fonts/VT323-Regular.ttf') format('truetype');
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'VT323', 'Courier New', monospace;
 }
@@ -65,6 +70,13 @@ body {
 .post-content svg {
   display: block;
   margin: 0 auto;
+  min-width: 46rem;
+}
+
+@media (min-width: 768px) {
+  .post-content svg {
+    min-width: 0;
+  }
 }
 
 .post-content pre {
