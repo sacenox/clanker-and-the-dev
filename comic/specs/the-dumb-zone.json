@@ -1,0 +1,27 @@
+{
+  "title": "The Dumb Zone",
+  "slug": "the-dumb-zone",
+  "timestamp": "2026-06-08",
+  "credit": "dev and clanker",
+  "layout": "two-panel-row",
+  "panels": [
+    {
+      "caption": "Hard at work, safely under the line.",
+      "devPose": "typing",
+      "clankerPose": "helpful",
+      "fx": ["screen-glow", "terminal-cursor"],
+      "tokenCounter": "79,999 TOKENS"
+    },
+    {
+      "caption": "80,001 tokens: welcome to the dumb zone.",
+      "devPose": "collapsed",
+      "clankerPose": "celebratory",
+      "fx": ["sparks", "sweat"],
+      "tokenCounter": "80,001 TOKENS",
+      "terminalLines": [
+        "$ rm -rf ./src",
+        "$ git clean -fdx"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+title: Clanker and the Dev
+description: terminal comics from the build log
+url: "https://xonecas.github.io"
+baseurl: ""
+markdown: kramdown
+permalink: /posts/:title/
+timezone: UTC
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+exclude:
+  - AGENTS.md
+  - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - dev.sh
+  - job.sh
+  - comic/
+  - vendor/
+  - node_modules/
+sass:
+  sass_dir: assets/css
+  style: compressed
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post

@@ -1,23 +1,24 @@
 # Clanker and the Dev
 
-This project is a website that follows the same format of a blog, but in addition of blog posts,
-each "post" is a comic strip.
+This project is a Jekyll/GitHub Pages comic-strip blog. Each post is a markdown page that usually contains an inline SVG comic strip.
 
 ## Tech
 
-- HTMX and Tailwind for frontend
-- Hono.dev for the server 
-- Deployed to https://render.com/ using a docker image (https://render.com/docs/docker)
-- Run locally in docker image (Do not install locally)
+- Jekyll static site for GitHub Pages
+- Tailwind CDN plus `assets/css/main.scss` for custom styling
+- Local development runs in Docker only; do not install Ruby gems locally
+- Comic generation uses Pi to create JSON specs, then `comic/render-comic.js` deterministically renders SVG posts
 
 ## Look and feel
 
-- Monospace font: VT323 (free Google Font) for an 80s terminal style.
-- Hacker green on black, dark grayscale ui components borders, icons, buttons etc.
-- Sidebar on the left, with sitename, and history of posts. and any other pages.
-- Main pane shows content, or a splash screen with an "About section".
+- Monospace font: VT323 (free Google Font) for an 80s terminal style
+- Hacker green on black, dark grayscale UI components, borders, icons, buttons, etc.
+- Sidebar on the left with site name and post history
+- Main pane shows content or the home splash screen
 
 ## Content is markdown
 
-- Posts are markdown files, with simple metadata as frontmatter. they live in posts/
-- Metadata has name, slug, and timestamp. Supports Jekyll post files.
+- Jekyll posts live in `_posts/`
+- Post filenames use `YYYY-MM-DD-slug.md`
+- Post frontmatter uses `layout: post` and `title`
+- Comic seeds live in `comic/inbox/`; run `./job.sh` to generate posts

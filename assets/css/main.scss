@@ -1,0 +1,75 @@
+---
+---
+
+:root { color-scheme: dark; }
+
+body {
+  font-family: 'VT323', 'Courier New', monospace;
+}
+
+.scanlines::before {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  mix-blend-mode: screen;
+}
+
+.post-content h1 {
+  font-size: 2.25rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  color: #86efac;
+}
+
+.post-content h2 {
+  font-size: 1.75rem;
+  margin-top: 1.5rem;
+  color: #bbf7d0;
+}
+
+.post-content p {
+  margin: 1rem 0;
+}
+
+.post-content a {
+  color: #22c55e;
+  text-decoration: underline;
+}
+
+.post-content img,
+.post-content svg {
+  border: 1px solid #166534;
+  background: #020617;
+  padding: 0.5rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.post-content svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.post-content pre {
+  border: 1px solid #14532d;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #020617;
+}
+
+.markdown-panel > *:first-child {
+  margin-top: 0;
+}
+
+.markdown-panel > *:last-child {
+  margin-bottom: 0;
+}

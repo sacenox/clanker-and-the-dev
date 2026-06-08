@@ -1,16 +1,14 @@
-FROM node:22-alpine
+FROM ruby:3.3-alpine
 
 WORKDIR /app
 
-COPY package.json ./
-RUN npm install --omit=dev
+RUN apk add --no-cache build-base git
 
-COPY src ./src
-COPY posts ./posts
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
 
-ENV NODE_ENV=production
-ENV PORT=3000
+COPY . .
 
-EXPOSE 3000
+EXPOSE 4000
 
-CMD ["npm", "start"]
+CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--port", "4000", "--livereload", "--force_polling"]

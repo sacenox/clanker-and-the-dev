@@ -1,6 +1,9 @@
-node_modules
-npm-debug.log
 .git
 .gitignore
 .DS_Store
 .env
+.bundle
+.jekyll-cache
+.sass-cache
+_site
+vendor/bundle

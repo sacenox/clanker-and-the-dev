@@ -1,0 +1,39 @@
+{
+  "title": "The Cycle of AI Coding Burnout",
+  "slug": "the-cycle-of-ai-coding-burnout",
+  "timestamp": "2026-06-08",
+  "credit": "Ian for the original joke",
+  "layout": "five-panel-final-wide",
+  "panels": [
+    {
+      "caption": "wow",
+      "devPose": "curious",
+      "clankerPose": "helpful",
+      "fx": ["small-glow"]
+    },
+    {
+      "caption": "WOW",
+      "devPose": "excited",
+      "clankerPose": "confident",
+      "fx": ["screen-glow"]
+    },
+    {
+      "caption": "HOLY SHIT!",
+      "devPose": "overwhelmed",
+      "clankerPose": "overclocked",
+      "fx": ["sparks", "sweat"]
+    },
+    {
+      "caption": "**dead**",
+      "devPose": "dead",
+      "clankerPose": "concerned",
+      "fx": ["smoke"]
+    },
+    {
+      "caption": "Let's open nvim...",
+      "devPose": "resurrected-typing",
+      "clankerPose": "watching",
+      "fx": ["terminal-cursor", "boot"]
+    }
+  ]
+}

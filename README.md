@@ -1,30 +1,60 @@
 # Clanker and the Dev
 
-Minimal POC for a comic-strip blog using Hono, HTMX, Tailwind CDN, and markdown posts.
+A Jekyll/GitHub Pages comic-strip blog with deterministic SVG comics generated from markdown seeds.
 
 ## Run in Docker
 
 ```bash
-docker build -t clanker-and-the-dev .
-docker run --rm -p 3000:3000 clanker-and-the-dev
+./dev.sh
 ```
 
-Open <http://localhost:3000>.
+Open <http://localhost:4000>.
 
 ## Posts
 
-Add markdown files to `posts/` with frontmatter:
+Jekyll posts live in `_posts/` and use filenames like:
+
+```txt
+_posts/2026-06-08-my-strip.md
+```
+
+Basic post frontmatter:
 
 ```md
 ---
-name: My Strip
-slug: my-strip
+layout: post
+title: My Strip
+---
+
+Post body goes here.
+```
+
+## Comic generation job
+
+Drop seed markdown files in `comic/inbox/`, then run:
+
+```bash
+./job.sh
+```
+
+The job asks Pi to convert the first inbox seed into `comic/specs/<slug>.json`, then `comic/render-comic.js` deterministically renders an inline SVG Jekyll post at `_posts/YYYY-MM-DD-<slug>.md`.
+
+Seed example:
+
+```md
+---
+title: The Cycle of AI Coding Burnout
+credit: Ian for the original joke
 timestamp: 2026-06-08
 ---
 
-# My Strip
-
-![Panel 1](/path-or-url-to-image.png)
+1. wow
+2. WOW
+3. HOLY SHIT!
+4. **dead**
+5. Let's open nvim...
 ```
 
-Jekyll-style filenames like `2026-06-08-my-strip.md` are also supported.
+## GitHub Pages
+
+The site is a standard Jekyll project. Configure GitHub Pages to build from the repository branch, and GitHub will run Jekyll automatically.
