@@ -6,7 +6,8 @@ This guide defines the only visual vocabulary the comic generator may use.
 
 - Format: simple SVG comic strip embedded in a markdown post.
 - Mood: 80s terminal, hacker green on black, sparse and readable.
-- Lines: monospace/stick-figure simplicity, no gradients, no photorealism.
+- Lines: clean neon SVG primitives inspired by `art-reference/`; readable over detailed.
+- Shapes: rounded terminal UI, simple geometric characters, no photorealism.
 - Background: black or near-black.
 - Panel borders: green terminal lines.
 - Characters must stay visually consistent between strips.
@@ -15,7 +16,7 @@ This guide defines the only visual vocabulary the comic generator may use.
 
 ### Dev
 
-A human software engineer drawn as a stick figure.
+A human software engineer drawn as a refined terminal-style stick figure.
 
 Persistent traits:
 
@@ -40,7 +41,7 @@ Allowed `devPose` values:
 
 ### Clanker
 
-An AI-powered robot assistant drawn with simple geometric shapes.
+An AI-powered robot assistant drawn with simple geometric shapes matching the reference sheets.
 
 Persistent traits:
 
@@ -76,7 +77,7 @@ Allowed `fx` values per panel:
 - `speed-lines`
 - `boot`
 
-Use effects sparingly. Prefer one or two per panel.
+Use effects sparingly. Prefer one or two per panel; the renderer expands them into reference-style SVG accents.
 
 ## Layouts
 
