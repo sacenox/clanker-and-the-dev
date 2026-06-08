@@ -7,18 +7,21 @@
   "panels": [
     {
       "caption": "wow",
+      "captionSpeaker": "dev",
       "devPose": "curious",
       "clankerPose": "helpful",
       "fx": ["small-glow"]
     },
     {
       "caption": "WOW",
+      "captionSpeaker": "dev",
       "devPose": "excited",
       "clankerPose": "confident",
       "fx": ["screen-glow"]
     },
     {
       "caption": "HOLY SHIT!",
+      "captionSpeaker": "dev",
       "devPose": "overwhelmed",
       "clankerPose": "overclocked",
       "fx": ["sparks", "sweat"]
@@ -31,6 +34,7 @@
     },
     {
       "caption": "Let's open nvim...",
+      "captionSpeaker": "dev",
       "devPose": "resurrected-typing",
       "clankerPose": "watching",
       "fx": ["terminal-cursor", "boot"]

@@ -94,10 +94,12 @@ Panel counts should normally be 3, 4, or 5.
 
 ## Caption rules
 
-- Each panel gets one short caption.
+- Each panel gets one short caption, or a short `dialogue` array when two characters exchange lines in the same panel.
 - Keep the seed's core joke intact.
 - Do not over-explain.
-- Markdown emphasis like `**dead**` is allowed in captions; the renderer will simplify it for SVG text.
+- Markdown emphasis like `**dead**` is allowed in captions/dialogue; the renderer will simplify it for SVG text.
+- Optional `captionSpeaker` values: `narrator`, `dev`, or `clanker`. Use `dev`/`clanker` when a line is dialogue; use `narrator` for setup or punchline captions.
+- Optional `dialogue` entries use `{ "speaker": "dev", "text": "..." }`. Keep to 1-3 lines per panel.
 
 ## Optional panel props
 
@@ -105,6 +107,8 @@ Use these when the seed asks for visible counters or terminal activity:
 
 - `tokenCounter`: short token meter text, for example `79,999 TOKENS` or `80,001 TOKENS`.
 - `terminalLines`: 1-3 short terminal lines, for example `$ rm -rf ./src`.
+- `captionSpeaker`: choose who owns the caption balloon (`narrator`, `dev`, or `clanker`).
+- `dialogue`: up to 3 caption/speech lines in one panel, useful for Spittoon-style chat beats.
 
 ## Generation rules for Pi
 

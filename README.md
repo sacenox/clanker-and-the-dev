@@ -39,6 +39,15 @@ Drop seed markdown files in `comic/inbox/`, then run:
 
 The job asks Pi to convert the first inbox seed into `comic/specs/<slug>.json`, then `comic/render-comic.js` deterministically renders an inline SVG Jekyll post at `_posts/YYYY-MM-DD-<slug>.md`.
 
+You can also compile a Spittoon-style chat script directly into a spec:
+
+```bash
+node comic/chat-to-spec.js my-strip.chat comic/specs/my-strip.json
+node comic/render-comic.js comic/specs/my-strip.json
+```
+
+Chat lines look like `dev->clanker: ship it? (curious/helpful) [screen-glow]`. Repeating a speaker starts a new panel, so two alternating speakers can share one panel as dialogue balloons.
+
 Seed example:
 
 ```md

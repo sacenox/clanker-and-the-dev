@@ -1,0 +1,44 @@
+{
+  "title": "The Refactor",
+  "slug": "the-refactor",
+  "timestamp": "2026-06-08",
+  "credit": "dev and clanker",
+  "layout": "two-panel-row",
+  "panels": [
+    {
+      "dialogue": [
+        {
+          "speaker": "dev",
+          "text": "Can you refactor this?"
+        },
+        {
+          "speaker": "clanker",
+          "text": "Absolutely."
+        }
+      ],
+      "devPose": "typing",
+      "clankerPose": "helpful",
+      "fx": ["screen-glow", "terminal-cursor"],
+      "terminalLines": [
+        "$ git status",
+        "legacy code: haunted"
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "speaker": "clanker",
+          "text": "I deleted it."
+        }
+      ],
+      "devPose": "overwhelmed",
+      "clankerPose": "confident",
+      "fx": ["sparks"],
+      "terminalLines": [
+        "$ rm -rf ./src",
+        "tests: skipped",
+        "complexity: 0"
+      ]
+    }
+  ]
+}

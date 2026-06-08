@@ -14,6 +14,7 @@ Pi writes one JSON file matching this schema. The deterministic renderer reads i
   "panels": [
     {
       "caption": "wow",
+      "captionSpeaker": "dev",
       "devPose": "curious",
       "clankerPose": "helpful",
       "fx": ["small-glow"]
@@ -33,7 +34,9 @@ Pi writes one JSON file matching this schema. The deterministic renderer reads i
 
 ## Panel fields
 
-- `caption` string, required. Short caption shown in the panel.
+- `caption` string, required unless `dialogue` is present. Short caption shown in the panel.
+- `captionSpeaker` string, optional with `caption`. Use `narrator`, `dev`, or `clanker`; defaults to `narrator`. Non-narrator captions render as speech balloons with tails.
+- `dialogue` array, optional alternative to `caption`. Up to 3 objects like `{ "speaker": "dev", "text": "ship it?" }`; `speaker` must be `narrator`, `dev`, or `clanker`.
 - `devPose` string, required. Must be an allowed `devPose` value from `comic/style-guide.md`.
 - `clankerPose` string, required. Must be an allowed `clankerPose` value from `comic/style-guide.md`.
 - `fx` array of strings, optional. Each item must be an allowed `fx` value from `comic/style-guide.md`.

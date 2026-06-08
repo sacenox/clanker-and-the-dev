@@ -11,6 +11,8 @@ title: The Cycle of AI Coding Burnout
     .terminal-line, .ground { stroke: #166534; stroke-width: 3; }
     .panel-bg { fill: #030712; stroke: #22c55e; stroke-width: 3; }
     .caption-bg { fill: rgba(0, 0, 0, 0.74); stroke: #166534; stroke-width: 2; }
+    .caption-bg.speech, .caption-tail { filter: drop-shadow(0 0 5px rgba(34, 197, 94, 0.25)); }
+    .caption-tail { fill: rgba(0, 0, 0, 0.74); stroke: #166534; stroke-width: 2; stroke-linejoin: round; }
     .caption { fill: #86efac; font-family: 'VT323', 'Courier New', monospace; }
     .caption-bold { font-weight: 700; letter-spacing: 1px; }
     .panel-num, .boot-text { fill: #166534; font: 22px 'VT323', 'Courier New', monospace; }
@@ -63,9 +65,10 @@ title: The Cycle of AI Coding Burnout
       <line x1="457.74" y1="277" x2="484.74" y2="248.5" class="bot-line" />
       <path d="M 375.24 244.75 l -7.5 -6 M 375.24 244.75 l 7.5 -6" class="bot-line" />
       <path d="M 489.24 244.75 l -7.5 -6 M 489.24 244.75 l 7.5 -6" class="bot-line" /></g>
-    <rect x="36" y="108" width="543" height="64" class="caption-bg" />
-    <text x="52" y="144" class="caption " style="font-size:32px">
-      <tspan x="52" dy="0">wow</tspan>
+    <path d="M 185.44 165 Q 205.44 189 205.44 210 Q 219.44 185 225.44 165 Z" class="caption-tail" />
+    <rect x="41.01000000000002" y="108" width="328.85999999999996" height="59" rx="14" class="caption-bg speech" />
+    <text x="57.01000000000002" y="144" class="caption " style="font-size:32px">
+      <tspan x="57.01000000000002" dy="0">wow</tspan>
     </text>
     <text x="569" y="350" text-anchor="end" class="panel-num">1</text>
   </g>
@@ -98,9 +101,10 @@ title: The Cycle of AI Coding Burnout
     <line x1="1042.74" y1="277" x2="1069.74" y2="280" class="bot-line" />
     <path d="M 960.24 281.5 l -7.5 -6 M 960.24 281.5 l 7.5 -6" class="bot-line" />
     <path d="M 1074.24 281.5 l -7.5 -6 M 1074.24 281.5 l 7.5 -6" class="bot-line" /></g>
-    <rect x="621" y="108" width="543" height="64" class="caption-bg" />
-    <text x="637" y="144" class="caption " style="font-size:32px">
-      <tspan x="637" dy="0">WOW</tspan>
+    <path d="M 770.44 165 Q 790.44 189 790.44 210 Q 804.44 185 810.44 165 Z" class="caption-tail" />
+    <rect x="626.0100000000001" y="108" width="328.85999999999996" height="59" rx="14" class="caption-bg speech" />
+    <text x="642.0100000000001" y="144" class="caption " style="font-size:32px">
+      <tspan x="642.0100000000001" dy="0">WOW</tspan>
     </text>
     <text x="1154" y="350" text-anchor="end" class="panel-num">2</text>
   </g>
@@ -139,9 +143,10 @@ title: The Cycle of AI Coding Burnout
     <path d="M 489.24 569.5 l -7.5 -6 M 489.24 569.5 l 7.5 -6" class="bot-line" />
     <path d="M 393.24 491.5 l 10.5 -16.5 l 7.5 13.5 l 11.25 -18.75" class="fx-line" />
     <path d="M 469.74 497.5 l 15 -13.5 l -1.5 19.5" class="fx-line" /></g>
-    <rect x="36" y="396" width="543" height="64" class="caption-bg" />
-    <text x="52" y="432" class="caption " style="font-size:32px">
-      <tspan x="52" dy="0">HOLY SHIT!</tspan>
+    <path d="M 185.44 453 Q 205.44 477 205.44 498 Q 219.44 473 225.44 453 Z" class="caption-tail" />
+    <rect x="41.01000000000002" y="396" width="328.85999999999996" height="59" rx="14" class="caption-bg speech" />
+    <text x="57.01000000000002" y="432" class="caption " style="font-size:32px">
+      <tspan x="57.01000000000002" dy="0">HOLY SHIT!</tspan>
     </text>
     <text x="569" y="638" text-anchor="end" class="panel-num">3</text>
   </g>
@@ -175,7 +180,7 @@ title: The Cycle of AI Coding Burnout
       <line x1="1042.74" y1="565" x2="1063.74" y2="583" class="bot-line" />
       <path d="M 967.74 586 l -7.5 -6 M 967.74 586 l 7.5 -6" class="bot-line" />
       <path d="M 1066.74 586 l -7.5 -6 M 1066.74 586 l 7.5 -6" class="bot-line" /></g>
-    <rect x="621" y="396" width="543" height="64" class="caption-bg" />
+    <rect x="621" y="396" width="543" height="59" rx="6" class="caption-bg narrator" />
     <text x="637" y="432" class="caption caption-bold" style="font-size:32px">
       <tspan x="637" dy="0">dead</tspan>
     </text>
@@ -214,9 +219,10 @@ title: The Cycle of AI Coding Burnout
       <line x1="883.1899999999999" y1="889.5" x2="907.6899999999999" y2="910.5" class="bot-line" />
       <path d="M 795.6899999999999 914 l -8.75 -7 M 795.6899999999999 914 l 8.75 -7" class="bot-line" />
       <path d="M 911.1899999999999 914 l -8.75 -7 M 911.1899999999999 914 l 8.75 -7" class="bot-line" /></g>
-    <rect x="36" y="684" width="1128" height="64" class="caption-bg" />
-    <text x="52" y="720" class="caption " style="font-size:36px">
-      <tspan x="52" dy="0">Let's open nvim...</tspan>
+    <path d="M 372.64 744 Q 392.64 768 392.64 831 Q 406.64 764 412.64 744 Z" class="caption-tail" />
+    <rect x="58.56" y="684" width="668.16" height="62" rx="14" class="caption-bg speech" />
+    <text x="74.56" y="720" class="caption " style="font-size:36px">
+      <tspan x="74.56" dy="0">Let's open nvim...</tspan>
     </text>
     <text x="1154" y="971" text-anchor="end" class="panel-num">5</text>
   </g>

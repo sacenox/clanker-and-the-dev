@@ -1,10 +1,10 @@
 ---
 layout: post
-title: The Dumb Zone
+title: The Refactor
 ---
 
 <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="comic-title" viewBox="0 0 1200 610" width="100%">
-  <title id="comic-title">The Dumb Zone</title>
+  <title id="comic-title">The Refactor</title>
   <style>
     svg { background: #000; }
     .title { fill: #86efac; font: 52px 'VT323', 'Courier New', monospace; letter-spacing: 2px; }
@@ -34,13 +34,17 @@ title: The Dumb Zone
     .terminal-fill { fill: #020617; }
     .terminal-cursor { fill: #86efac; font: 38px 'VT323', 'Courier New', monospace; }
   </style>
-    <text x="600" y="58" text-anchor="middle" class="title">The Dumb Zone</text>
+    <text x="600" y="58" text-anchor="middle" class="title">The Refactor</text>
     <line x1="24" y1="78" x2="1176" y2="78" class="terminal-line" />
   <g class="panel" aria-label="Panel 1">
     <rect x="24" y="96" width="567" height="470" rx="8" class="panel-bg" />
     <line x1="42" y1="528" x2="573" y2="528" class="ground" />
     <circle cx="432.24" cy="404" r="95" class="glow strong" />
 <text x="505" y="530" class="terminal-cursor">█</text>
+    <g class="mini-terminal">
+    <rect x="44" y="434" width="328.85999999999996" height="78" class="mini-terminal-bg" />
+    <text x="58" y="462" class="mini-terminal-text">$ git status</text><text x="58" y="486" class="mini-terminal-text">legacy code: haunted</text>
+  </g>
     <g class="dev">
     <circle cx="185.19" cy="406.5" r="23.287499999999998" class="dev-fill dev-line" />
     <rect x="166.965" y="399.4125" width="14.174999999999999" height="10.125" class="dev-fill dev-line" />
@@ -67,14 +71,16 @@ title: The Dumb Zone
       <line x1="466.665" y1="459.15" x2="503.115" y2="420.67499999999995" class="bot-line" />
       <path d="M 355.29 415.61249999999995 l -10.125 -8.1 M 355.29 415.61249999999995 l 10.125 -8.1" class="bot-line" />
       <path d="M 509.19 415.61249999999995 l -10.125 -8.1 M 509.19 415.61249999999995 l 10.125 -8.1" class="bot-line" /></g>
-    <rect x="36" y="108" width="543" height="88" rx="6" class="caption-bg narrator" />
-    <text x="52" y="144" class="caption " style="font-size:32px">
-      <tspan x="52" dy="0">Hard at work, safely under the</tspan><tspan x="52" dy="29">line.</tspan>
+    <path d="M 185.44 194 Q 205.44 218 205.44 410 Q 219.44 214 225.44 194 Z" class="caption-tail" />
+    <rect x="41.01000000000002" y="108" width="328.85999999999996" height="88" rx="14" class="caption-bg speech" />
+    <text x="57.01000000000002" y="144" class="caption " style="font-size:32px">
+      <tspan x="57.01000000000002" dy="0">Can you refactor</tspan><tspan x="57.01000000000002" dy="29">this?</tspan>
     </text>
-    <g class="token-counter">
-    <rect x="399" y="186" width="170" height="36" class="meter-bg" />
-    <text x="413" y="211" class="meter-text">79,999 TOKENS</text>
-  </g>
+    <path d="M 412.24 263 Q 432.24 287 432.24 410 Q 446.24 283 452.24 263 Z" class="caption-tail" />
+    <rect x="250.14000000000004" y="206" width="328.85999999999996" height="59" rx="14" class="caption-bg speech" />
+    <text x="266.14000000000004" y="242" class="caption " style="font-size:32px">
+      <tspan x="266.14000000000004" dy="0">Absolutely.</tspan>
+    </text>
     <text x="569" y="550" text-anchor="end" class="panel-num">1</text>
   </g>
 <g class="panel" aria-label="Panel 2">
@@ -82,43 +88,42 @@ title: The Dumb Zone
     <line x1="627" y1="528" x2="1158" y2="528" class="ground" />
     <path d="M 1079.24 348 l 18 -28 l 8 24 l 22 -20" class="fx-line" />
 <path d="M 945.24 363 l -20 -18 l 5 25" class="fx-line" />
-<path d="M 842.44 368 q 10 16 -4 27 q -14 -12 4 -27" class="fx-fill" />
     <g class="mini-terminal">
-    <rect x="629" y="434" width="328.85999999999996" height="78" class="mini-terminal-bg" />
-    <text x="643" y="462" class="mini-terminal-text">$ rm -rf ./src</text><text x="643" y="486" class="mini-terminal-text">$ git clean -fdx</text>
+    <rect x="629" y="410" width="328.85999999999996" height="102" class="mini-terminal-bg" />
+    <text x="643" y="438" class="mini-terminal-text">$ rm -rf ./src</text><text x="643" y="462" class="mini-terminal-text">tests: skipped</text><text x="643" y="486" class="mini-terminal-text">complexity: 0</text>
   </g>
-    <g class="dev">
-    <circle cx="751.965" cy="501.67499999999995" r="22.275" class="dev-fill dev-line" />
-    <rect x="736.7775" y="496.61249999999995" width="13.1625" height="9.112499999999999" class="dev-fill dev-line" /><rect x="758.0400000000001" y="496.61249999999995" width="13.1625" height="9.112499999999999" class="dev-fill dev-line" />
-    <line x1="775.2525" y1="509.775" x2="876.5025" y2="511.79999999999995"  />
-    <line x1="804.615" y1="509.775" x2="792.465" y2="479.4"  />
-    <line x1="828.9150000000001" y1="510.78749999999997" x2="818.7900000000001" y2="540.15"  />
-    <line x1="873.465" y1="511.79999999999995" x2="918.0150000000001" y2="495.59999999999997"  />
-    <line x1="875.49" y1="511.79999999999995" x2="915.99" y2="525.975"  />
+    <g class="dev" >
+    <circle cx="790.44" cy="396.375" r="24.299999999999997" class="dev-fill dev-line" />
+    <rect x="772.215" y="389.2875" width="14.174999999999999" height="10.125" class="dev-fill dev-line" />
+    <rect x="794.49" y="389.2875" width="14.174999999999999" height="10.125" class="dev-fill dev-line" />
+    <line x1="786.3900000000001" y1="394.35" x2="794.49" y2="394.35"  />
+    <line x1="790.44" y1="418.65" x2="790.44" y2="477.375"  />
+      <line x1="790.44" y1="438.9" x2="744.8775" y2="396.375"  />
+      <line x1="790.44" y1="438.9" x2="836.0025" y2="396.375"  />
+    <line x1="790.44" y1="477.375" x2="765.1275" y2="528"  />
+    <line x1="790.44" y1="477.375" x2="817.7775" y2="528"  />
+      <path d="M 731.715 362.9625 l 10.125 -18.224999999999998 l 10.125 18.224999999999998" class="dev-line" />
+      <path d="M 832.965 357.9 l 16.2 -10.125 l -6.074999999999999 22.275" class="dev-line" />
   </g>
     <g class="clanker">
     <line x1="1017.24" y1="376.125" x2="1017.24" y2="349.8" class="bot-line" />
     <circle cx="1017.24" cy="344.7375" r="5.0625" class="bot-fill bot-line" />
     <rect x="980.79" y="376.125" width="72.89999999999999" height="54.675" rx="8" class="bot-fill bot-line" />
-    <rect x="991.9275" y="394.35" width="16.2" height="12.149999999999999" class="bot-eye" /><rect x="1026.3525" y="394.35" width="16.2" height="12.149999999999999" class="bot-eye" />
+    <rect x="991.9275" y="394.35" width="16.2" height="12.149999999999999" class="bot-eye hot" /><rect x="1026.3525" y="394.35" width="16.2" height="12.149999999999999" class="bot-eye hot" />
     <rect x="982.815" y="436.875" width="68.85" height="55.6875" rx="6" class="bot-fill bot-line" />
     <line x1="999.015" y1="455.1" x2="1035.465" y2="455.1" class="bot-line" />
     <line x1="999.015" y1="471.3" x2="1035.465" y2="471.3" class="bot-line" />
     <line x1="996.99" y1="492.5625" x2="988.89" y2="528" class="bot-line" />
     <line x1="1037.49" y1="492.5625" x2="1045.59" y2="528" class="bot-line" />
-      <line x1="982.815" y1="459.15" x2="946.365" y2="420.67499999999995" class="bot-line" />
-      <line x1="1051.665" y1="459.15" x2="1088.115" y2="420.67499999999995" class="bot-line" />
-      <path d="M 940.29 415.61249999999995 l -10.125 -8.1 M 940.29 415.61249999999995 l 10.125 -8.1" class="bot-line" />
-      <path d="M 1094.19 415.61249999999995 l -10.125 -8.1 M 1094.19 415.61249999999995 l 10.125 -8.1" class="bot-line" /></g>
-    <path d="M 997.24 223 Q 1017.24 247 1017.24 410 Q 1031.24 243 1037.24 223 Z" class="caption-tail" />
-    <rect x="835.1400000000001" y="108" width="328.85999999999996" height="117" rx="14" class="caption-bg speech" />
+    <line x1="982.815" y1="459.15" x2="946.365" y2="463.2" class="bot-line" />
+    <line x1="1051.665" y1="459.15" x2="1088.115" y2="463.2" class="bot-line" />
+    <path d="M 940.29 465.22499999999997 l -10.125 -8.1 M 940.29 465.22499999999997 l 10.125 -8.1" class="bot-line" />
+    <path d="M 1094.19 465.22499999999997 l -10.125 -8.1 M 1094.19 465.22499999999997 l 10.125 -8.1" class="bot-line" /></g>
+    <path d="M 997.24 165 Q 1017.24 189 1017.24 410 Q 1031.24 185 1037.24 165 Z" class="caption-tail" />
+    <rect x="835.1400000000001" y="108" width="328.85999999999996" height="59" rx="14" class="caption-bg speech" />
     <text x="851.1400000000001" y="144" class="caption " style="font-size:32px">
-      <tspan x="851.1400000000001" dy="0">80,001 tokens:</tspan><tspan x="851.1400000000001" dy="29">welcome to the dumb</tspan><tspan x="851.1400000000001" dy="29">zone.</tspan>
+      <tspan x="851.1400000000001" dy="0">I deleted it.</tspan>
     </text>
-    <g class="token-counter">
-    <rect x="984" y="186" width="170" height="36" class="meter-bg" />
-    <text x="998" y="211" class="meter-text">80,001 TOKENS</text>
-  </g>
     <text x="1154" y="550" text-anchor="end" class="panel-num">2</text>
   </g>
 </svg>

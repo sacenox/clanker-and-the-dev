@@ -39,6 +39,8 @@ const FX = new Set([
   'boot',
 ]);
 
+const CAPTION_SPEAKERS = new Set(['narrator', 'dev', 'clanker']);
+
 const LAYOUTS = new Set([
   'auto',
   'one-panel',
@@ -129,13 +131,29 @@ function validateSpec(spec) {
   spec.panels.forEach((panel, index) => {
     const label = `Panel ${index + 1}`;
     if (!panel || typeof panel !== 'object') throw new Error(`${label} must be an object.`);
-    if (!panel.caption || typeof panel.caption !== 'string') throw new Error(`${label} requires caption.`);
+    const hasCaption = typeof panel.caption === 'string' && panel.caption.length > 0;
+    const hasDialogue = Array.isArray(panel.dialogue) && panel.dialogue.length > 0;
+    if (!hasCaption && !hasDialogue) throw new Error(`${label} requires caption or dialogue.`);
+    if (panel.caption !== undefined && typeof panel.caption !== 'string') throw new Error(`${label} caption must be a string.`);
     if (!DEV_POSES.has(panel.devPose)) throw new Error(`${label} has unknown devPose: ${panel.devPose}`);
     if (!CLANKER_POSES.has(panel.clankerPose)) throw new Error(`${label} has unknown clankerPose: ${panel.clankerPose}`);
     if (panel.fx !== undefined) {
       if (!Array.isArray(panel.fx)) throw new Error(`${label} fx must be an array.`);
       for (const item of panel.fx) {
         if (!FX.has(item)) throw new Error(`${label} has unknown fx: ${item}`);
+      }
+    }
+    if (panel.captionSpeaker !== undefined && !CAPTION_SPEAKERS.has(panel.captionSpeaker)) {
+      throw new Error(`${label} captionSpeaker must be narrator, dev, or clanker.`);
+    }
+    if (panel.dialogue !== undefined) {
+      if (!Array.isArray(panel.dialogue)) throw new Error(`${label} dialogue must be an array.`);
+      if (panel.dialogue.length > 3) throw new Error(`${label} dialogue supports at most 3 lines.`);
+      for (const [dialogueIndex, item] of panel.dialogue.entries()) {
+        const dialogueLabel = `${label} dialogue ${dialogueIndex + 1}`;
+        if (!item || typeof item !== 'object') throw new Error(`${dialogueLabel} must be an object.`);
+        if (!CAPTION_SPEAKERS.has(item.speaker)) throw new Error(`${dialogueLabel} speaker must be narrator, dev, or clanker.`);
+        if (!item.text || typeof item.text !== 'string') throw new Error(`${dialogueLabel} requires text.`);
       }
     }
     if (panel.tokenCounter !== undefined && typeof panel.tokenCounter !== 'string') {
@@ -258,17 +276,71 @@ function renderTitle(title, width) {
     <line x1="24" y1="78" x2="${width - 24}" y2="78" class="terminal-line" />`;
 }
 
-function renderCaption(panel, box) {
-  const maxChars = Math.max(12, Math.floor((box.w - 44) / 17));
-  const lines = wrapText(panel.caption, maxChars).slice(0, 3);
-  const bold = /\*\*|__/.test(panel.caption);
-  const fontSize = box.w > 800 ? 36 : box.w < 400 ? 28 : 32;
+function panelCaptions(panel) {
+  if (Array.isArray(panel.dialogue) && panel.dialogue.length) {
+    return panel.dialogue.map((item) => ({
+      speaker: item.speaker || 'narrator',
+      text: item.text,
+    }));
+  }
 
-  return `
-    ${rect(box.x + 12, box.y + 12, box.w - 24, 34 + lines.length * 30, 'class="caption-bg"')}
-    <text x="${box.x + 28}" y="${box.y + 48}" class="caption ${bold ? 'caption-bold' : ''}" style="font-size:${fontSize}px">
-      ${lines.map((lineText, i) => `<tspan x="${box.x + 28}" dy="${i === 0 ? 0 : 30}">${escapeHtml(lineText)}</tspan>`).join('')}
-    </text>`;
+  return [{
+    speaker: panel.captionSpeaker || 'narrator',
+    text: panel.caption,
+  }];
+}
+
+function renderCaptionBalloon(item, box, devX, botX, groundY, y) {
+  const speaker = item.speaker || 'narrator';
+  const text = item.text;
+  const bold = /\*\*|__/.test(text);
+  const fontSize = box.w > 800 ? 36 : box.w < 400 ? 28 : 32;
+  const lineHeight = Math.round(fontSize * 0.9);
+  const maxW = speaker === 'narrator'
+    ? box.w - 24
+    : Math.min(box.w - 44, Math.max(270, box.w * 0.58));
+  const maxChars = Math.max(10, Math.floor((maxW - 34) / (fontSize * 0.47)));
+  const lines = wrapText(text, maxChars).slice(0, 4);
+  const balloonH = 30 + lines.length * lineHeight;
+  const targetX = speaker === 'dev' ? devX : speaker === 'clanker' ? botX : null;
+  const x = speaker === 'narrator'
+    ? box.x + 12
+    : Math.max(box.x + 12, Math.min(targetX - maxW / 2, box.x + box.w - maxW - 12));
+  const textX = x + 16;
+  const textY = y + 36;
+
+  if (speaker === 'narrator') {
+    return {
+      height: balloonH,
+      svg: `
+    ${rect(x, y, maxW, balloonH, 'rx="6" class="caption-bg narrator"')}
+    <text x="${textX}" y="${textY}" class="caption ${bold ? 'caption-bold' : ''}" style="font-size:${fontSize}px">
+      ${lines.map((lineText, i) => `<tspan x="${textX}" dy="${i === 0 ? 0 : lineHeight}">${escapeHtml(lineText)}</tspan>`).join('')}
+    </text>`,
+    };
+  }
+
+  const tailBaseX = Math.max(x + 36, Math.min(targetX, x + maxW - 36));
+  const tailTipY = Math.max(y + balloonH + 26, Math.min(groundY - 118, box.y + box.h - 72));
+
+  return {
+    height: balloonH,
+    svg: `
+    <path d="M ${tailBaseX - 20} ${y + balloonH - 2} Q ${tailBaseX} ${y + balloonH + 22} ${targetX} ${tailTipY} Q ${tailBaseX + 14} ${y + balloonH + 18} ${tailBaseX + 20} ${y + balloonH - 2} Z" class="caption-tail" />
+    ${rect(x, y, maxW, balloonH, 'rx="14" class="caption-bg speech"')}
+    <text x="${textX}" y="${textY}" class="caption ${bold ? 'caption-bold' : ''}" style="font-size:${fontSize}px">
+      ${lines.map((lineText, i) => `<tspan x="${textX}" dy="${i === 0 ? 0 : lineHeight}">${escapeHtml(lineText)}</tspan>`).join('')}
+    </text>`,
+  };
+}
+
+function renderCaptions(panel, box, devX, botX, groundY) {
+  let y = box.y + 12;
+  return panelCaptions(panel).map((item) => {
+    const rendered = renderCaptionBalloon(item, box, devX, botX, groundY, y);
+    y += rendered.height + 10;
+    return rendered.svg;
+  }).join('\n');
 }
 
 function renderDev(pose, x, footY, s) {
@@ -508,7 +580,7 @@ function renderPanel(panel, box, index) {
     ${renderTerminalLines(panel, box)}
     ${renderDev(panel.devPose, devX, groundY, s)}
     ${renderClanker(panel.clankerPose, botX, groundY, s)}
-    ${renderCaption(panel, box)}
+    ${renderCaptions(panel, box, devX, botX, groundY)}
     ${renderTokenCounter(panel, box)}
     <text x="${box.x + box.w - 22}" y="${box.y + box.h - 16}" text-anchor="end" class="panel-num">${index + 1}</text>
   </g>`;
@@ -525,6 +597,8 @@ function renderSvg(spec) {
     .terminal-line, .ground { stroke: ${GREEN_DIM}; stroke-width: 3; }
     .panel-bg { fill: ${PANEL_BG}; stroke: ${GREEN}; stroke-width: 3; }
     .caption-bg { fill: rgba(0, 0, 0, 0.74); stroke: ${GREEN_DIM}; stroke-width: 2; }
+    .caption-bg.speech, .caption-tail { filter: drop-shadow(0 0 5px rgba(34, 197, 94, 0.25)); }
+    .caption-tail { fill: rgba(0, 0, 0, 0.74); stroke: ${GREEN_DIM}; stroke-width: 2; stroke-linejoin: round; }
     .caption { fill: ${GREEN_BRIGHT}; font-family: 'VT323', 'Courier New', monospace; }
     .caption-bold { font-weight: 700; letter-spacing: 1px; }
     .panel-num, .boot-text { fill: ${GREEN_DIM}; font: 22px 'VT323', 'Courier New', monospace; }

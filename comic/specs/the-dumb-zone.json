@@ -14,6 +14,7 @@
     },
     {
       "caption": "80,001 tokens: welcome to the dumb zone.",
+      "captionSpeaker": "clanker",
       "devPose": "collapsed",
       "clankerPose": "celebratory",
       "fx": ["sparks", "sweat"],
