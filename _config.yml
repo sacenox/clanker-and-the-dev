@@ -1,7 +1,7 @@
 title: Clanker and the Dev
 description: terminal comics from the build log
-url: "https://xonecas.github.io"
-baseurl: ""
+url: "https://sacenox.github.io"
+baseurl: "/clanker-and-the-dev"
 markdown: kramdown
 permalink: /posts/:title/
 timezone: UTC
