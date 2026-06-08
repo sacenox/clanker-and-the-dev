@@ -1,5 +1,6 @@
 title: Clanker and the Dev
 description: terminal comics from the build log
+github_repo: "https://github.com/sacenox/clanker-and-the-dev"
 url: "https://sacenox.github.io"
 baseurl: "/clanker-and-the-dev"
 markdown: kramdown
