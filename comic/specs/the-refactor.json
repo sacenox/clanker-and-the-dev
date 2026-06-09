@@ -3,9 +3,12 @@
   "slug": "the-refactor",
   "timestamp": "2026-06-08",
   "credit": "dev and clanker",
-  "layout": "two-panel-row",
+  "summary": "The dev asks Clanker to refactor code and Clanker optimizes by deleting the whole source tree.",
   "panels": [
     {
+      "artPrompt": "Dev, a human software developer with simple rectangular glasses, types at a terminal laptop in a pure black terminal room while Clanker, a boxy robot assistant with screen eyes and antenna, leans in helpfully with one claw raised.",
+      "composition": "Dev on the left at the laptop, Clanker on the right, laptop foreground, sparse dark upper area reserved for speech bubbles.",
+      "shot": "medium",
       "dialogue": [
         {
           "speaker": "dev",
@@ -16,24 +19,21 @@
           "text": "Absolutely."
         }
       ],
-      "devPose": "typing",
-      "clankerPose": "helpful",
-      "fx": ["screen-glow", "terminal-cursor"],
       "terminalLines": [
         "$ git status",
         "legacy code: haunted"
       ]
     },
     {
+      "artPrompt": "Clanker stands proudly in the same neon terminal room with a confident robot grin on its screen eyes while Dev panics beside an empty terminal laptop, sparks and tiny green debris implying the source code vanished.",
+      "composition": "Clanker on the right in a triumphant pose, overwhelmed Dev on the left, laptop screen centered, dark upper area reserved for a speech bubble.",
+      "shot": "medium",
       "dialogue": [
         {
           "speaker": "clanker",
           "text": "I deleted it."
         }
       ],
-      "devPose": "overwhelmed",
-      "clankerPose": "confident",
-      "fx": ["sparks"],
       "terminalLines": [
         "$ rm -rf ./src",
         "tests: skipped",

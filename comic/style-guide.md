@@ -1,43 +1,45 @@
 # Clanker and the Dev Comic Style Guide
 
-This guide defines the only visual vocabulary the comic generator may use.
+This guide defines the visual identity and prompt vocabulary for the SDXL image-generation pipeline.
 
 ## Overall look
 
-- Format: simple SVG comic strip embedded in a markdown post.
+- Format: generated PNG comic panels composed into one panels-only `strip.png`.
 - Mood: 80s terminal, hacker green on black, sparse and readable.
-- Lines: clean neon SVG primitives inspired by `art-reference/`; readable over detailed.
-- Shapes: rounded terminal UI, simple geometric characters, no photorealism.
-- Background: black or near-black.
-- Panel borders: green terminal lines.
-- Characters must stay visually consistent between strips.
+- Lines: clean neon line-art inspired by `art-reference/`; readable over detailed. The generator post-processes SDXL output back into crisp terminal strokes.
+- Shapes: simple comic geometry and characters, no photorealism, no UI chrome.
+- Background: black or near-black; avoid CRT scanlines, panels, windows, headers, footers, and texture unless explicitly needed.
+- Panel borders: simple green comic frames added by the compositor.
+- Characters must stay visually consistent between strips; auto ControlNet guides are built from `art-reference/` character sprites to enforce this.
+- Dialogue, captions, code snippets, and panel borders are overlaid after image generation.
 
 ## Characters
 
 ### Dev
 
-A human software engineer drawn as a refined terminal-style stick figure.
+A human software engineer drawn as a refined terminal-style stick figure / simple comic character.
 
 Persistent traits:
 
-- Round stick-figure head.
+- Round head.
 - Simple rectangular glasses.
 - Minimal torso and limbs.
 - Usually near a laptop or terminal when coding.
 - Expressive body posture does most of the acting.
+- Drawn in neon green / black terminal style, not photorealistic.
 
-Allowed `devPose` values:
+Useful acting words:
 
-- `neutral` - standing normally.
-- `curious` - leaning in, interested.
-- `thinking` - one hand near chin/head.
-- `excited` - arms raised, energized.
-- `overwhelmed` - arms up, panic/sweat energy.
-- `typing` - seated/leaning at laptop.
-- `resurrected-typing` - back from defeat, typing again.
-- `collapsed` - lying flat, burned out.
-- `dead` - lying flat with X eyes.
-- `caffeinated` - jittery, over-alert.
+- neutral
+- curious
+- thinking
+- excited
+- overwhelmed
+- typing
+- resurrected-typing
+- collapsed
+- dead
+- caffeinated
 
 ### Clanker
 
@@ -50,74 +52,78 @@ Persistent traits:
 - Rectangular torso.
 - Thin segmented arms and claw hands.
 - More machine than humanoid, but readable/emotive.
+- Drawn in neon green / black terminal style, not photorealistic.
 
-Allowed `clankerPose` values:
+Useful acting words:
 
-- `neutral` - idle robot stance.
-- `helpful` - one arm raised like offering an answer.
-- `confident` - stable posture, upbeat screen eyes.
-- `watching` - observing the Dev or terminal.
-- `thinking` - processing, antenna emphasis.
-- `overclocked` - sparks/glow, too much compute.
-- `concerned` - worried eyes/body angle.
-- `error` - broken/error screen expression.
-- `celebratory` - arms up, successful build vibe.
-- `sleeping` - powered down/idle.
+- neutral
+- helpful
+- confident
+- watching
+- thinking
+- overclocked
+- concerned
+- error
+- celebratory
+- sleeping
 
-## Effects
+## Effects and props
 
-Allowed `fx` values per panel:
+Use effects sparingly in `artPrompt`:
 
-- `small-glow`
-- `screen-glow`
-- `sparks`
-- `terminal-cursor`
-- `smoke`
-- `sweat`
-- `speed-lines`
-- `boot`
+- terminal cursor line (subtle, not blurry)
+- sparks
+- smoke
+- sweat/panic marks
+- speed lines
+- boot-up cursor
+- laptop as a prop
+- code/output text via `terminalLines`, not a rendered app window
+- token counter / progress meter as a visual prop only
 
-Use effects sparingly. Prefer one or two per panel; the renderer expands them into reference-style SVG accents.
+Do not ask the model to render readable text in props. Put readable text in `terminalLines`, `caption`, or `dialogue`.
 
-## Layouts
+## Composition guidance
 
-Allowed `layout` values:
+Each panel prompt should usually include:
 
-- `auto` - renderer chooses based on panel count.
-- `one-panel`
-- `two-panel-row`
-- `three-panel-row`
-- `four-panel-grid`
-- `five-panel-final-wide`
-- `six-panel-grid`
+- where Dev is positioned
+- where Clanker is positioned
+- the main prop, usually a laptop or terminal
+- the emotion/acting of each character
+- empty dark space near the top for speech bubbles
+- black/neon green terminal mood
 
-Panel counts should normally be 3, 4, or 5.
+Example:
 
-## Caption rules
+```txt
+Dev on the left slumps over a terminal laptop, Clanker on the right stands confidently with one claw raised, pure black sparse background, empty dark upper area for speech bubbles.
+```
 
-- Each panel gets one short caption, or a short `dialogue` array when two characters exchange lines in the same panel.
-- Keep the seed's core joke intact.
-- Do not over-explain.
-- Markdown emphasis like `**dead**` is allowed in captions/dialogue; the renderer will simplify it for SVG text.
-- Optional `captionSpeaker` values: `narrator`, `dev`, or `clanker`. Use `dev`/`clanker` when a line is dialogue; use `narrator` for setup or punchline captions.
-- Optional `dialogue` entries use `{ "speaker": "dev", "text": "..." }`. Keep to 1-3 lines per panel.
+## Text rules
 
-## Optional panel props
+Stable Diffusion should not draw readable text.
 
-Use these when the seed asks for visible counters or terminal activity:
+The compositor adds:
 
-- `tokenCounter`: short token meter text, for example `79,999 TOKENS` or `80,001 TOKENS`.
-- `terminalLines`: 1-3 short terminal lines, for example `$ rm -rf ./src`.
-- `captionSpeaker`: choose who owns the caption balloon (`narrator`, `dev`, or `clanker`).
-- `dialogue`: up to 3 caption/speech lines in one panel, useful for Spittoon-style chat beats.
+- speech bubbles
+- captions
+- code/output text
+- simple panel borders
 
-## Generation rules for Pi
+It does not add panel numbers, title cards, headers, footers, credits, or branding inside the PNG. Those belong in Jekyll HTML/CSS.
+
+Keep dialogue short. Up to three dialogue/caption items per panel works best.
+
+## Generation rules for Pi / agents
 
 When generating a comic spec:
 
-1. Output valid JSON only into the requested spec file.
-2. Use only enum values from this guide.
-3. Do not draw SVG directly.
-4. Do not create markdown posts directly.
-5. Do not edit renderer files.
-6. If a seed has numbered beats, usually map one beat to one panel.
+1. Output valid JSON only into `comic/specs/<slug>.json`.
+2. Use the image-generation schema in `comic/schema.md`.
+3. Do not write SVG.
+4. Do not create inline-SVG markdown posts.
+5. Do not use the old deterministic renderer or `job.sh`.
+6. If a seed or joke has numbered beats, usually map one beat to one panel.
+7. Put all readable comic lettering in `dialogue`, `caption`, or `terminalLines`, not in `artPrompt`.
+8. Do not request title cards, headers, footers, app/browser chrome, watermarks, or metadata in generated art.

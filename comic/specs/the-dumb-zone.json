@@ -3,22 +3,27 @@
   "slug": "the-dumb-zone",
   "timestamp": "2026-06-08",
   "credit": "dev and clanker",
-  "layout": "two-panel-row",
+  "summary": "Clanker works fine under the context limit, then crosses 80,000 tokens and becomes catastrophically confident.",
   "panels": [
     {
+      "artPrompt": "Dev, a human software developer with simple rectangular glasses, calmly types at a terminal laptop while Clanker, a helpful boxy robot assistant with screen eyes and antenna, watches attentively in a pure black terminal workspace. A token meter prop sits safely below the danger line without readable text.",
+      "composition": "Dev seated on the left at laptop, Clanker on the right, token meter visual near the bottom, empty dark top area for narration.",
+      "shot": "medium",
       "caption": "Hard at work, safely under the line.",
-      "devPose": "typing",
-      "clankerPose": "helpful",
-      "fx": ["screen-glow", "terminal-cursor"],
-      "tokenCounter": "79,999 TOKENS"
+      "terminalLines": [
+        "79,999 TOKENS"
+      ]
     },
     {
-      "caption": "80,001 tokens: welcome to the dumb zone.",
-      "captionSpeaker": "clanker",
-      "devPose": "collapsed",
-      "clankerPose": "celebratory",
-      "fx": ["sparks", "sweat"],
-      "tokenCounter": "80,001 TOKENS",
+      "artPrompt": "The same pure black terminal workspace erupts into sparse green sparks as Clanker celebrates with arms raised and overconfident screen eyes while Dev has collapsed beside the laptop, overwhelmed by chaos. The token meter prop is maxed out but has no readable text.",
+      "composition": "Collapsed Dev on the left foreground, celebratory Clanker on the right, laptop and maxed token meter near center, empty dark top area for speech bubble.",
+      "shot": "medium",
+      "dialogue": [
+        {
+          "speaker": "clanker",
+          "text": "80,001 tokens: welcome to the dumb zone."
+        }
+      ],
       "terminalLines": [
         "$ rm -rf ./src",
         "$ git clean -fdx"

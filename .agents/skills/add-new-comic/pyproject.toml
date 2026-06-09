@@ -1,0 +1,19 @@
+[project]
+name = "clanker-comic-generator"
+version = "0.1.0"
+description = "SDXL image generation pipeline for Clanker and the Dev comics"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "torch",
+  "diffusers>=0.29.0",
+  "transformers",
+  "accelerate",
+  "safetensors",
+  "Pillow",
+  "pydantic>=2",
+  "opencv-python",
+  "peft",
+]
+
+[tool.uv]
+package = false

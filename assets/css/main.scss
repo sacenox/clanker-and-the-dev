@@ -67,6 +67,24 @@ body {
   height: auto;
 }
 
+.image-comic {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.image-comic img {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.comic-credit {
+  color: #86efac;
+  opacity: 0.8;
+  text-align: right;
+}
+
 .post-content svg {
   display: block;
   margin: 0 auto;

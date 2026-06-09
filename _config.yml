@@ -16,8 +16,13 @@ exclude:
   - Gemfile.lock
   - README.md
   - dev.sh
-  - job.sh
   - comic/
+  - .agents/
+  - .cache/
+  - .bundle/
+  - .jekyll-cache/
+  - .sass-cache/
+  - _site/
   - vendor/
   - node_modules/
 sass:

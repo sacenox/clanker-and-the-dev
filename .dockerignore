@@ -5,5 +5,7 @@
 .bundle
 .jekyll-cache
 .sass-cache
+.cache
 _site
 vendor/bundle
+.agents

@@ -5,3 +5,7 @@ _site/
 vendor/bundle/
 .env
 .DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+.cache/

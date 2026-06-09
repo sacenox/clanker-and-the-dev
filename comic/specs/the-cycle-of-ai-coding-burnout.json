@@ -3,41 +3,60 @@
   "slug": "the-cycle-of-ai-coding-burnout",
   "timestamp": "2026-06-08",
   "credit": "Ian for the original joke",
-  "layout": "five-panel-final-wide",
+  "summary": "A developer experiences the full emotional cycle of AI-assisted coding: amazement, hype, panic, death, and immediately opening nvim again.",
   "panels": [
     {
-      "caption": "wow",
-      "captionSpeaker": "dev",
-      "devPose": "curious",
-      "clankerPose": "helpful",
-      "fx": ["small-glow"]
+      "artPrompt": "Dev, a human software developer with simple rectangular glasses, leans curiously toward a terminal laptop in a pure black terminal room while Clanker, a helpful boxy robot assistant with screen eyes and antenna, offers a small terminal cursor suggestion.",
+      "composition": "Dev left, Clanker right, laptop centered, calm sparse background, empty dark upper area for a small speech bubble.",
+      "shot": "medium",
+      "dialogue": [
+        {
+          "speaker": "dev",
+          "text": "wow"
+        }
+      ]
     },
     {
-      "caption": "WOW",
-      "captionSpeaker": "dev",
-      "devPose": "excited",
-      "clankerPose": "confident",
-      "fx": ["screen-glow"]
+      "artPrompt": "Dev throws both arms up in excited amazement at the terminal laptop while Clanker stands confidently beside it, pure black background with clean terminal line energy.",
+      "composition": "Excited Dev on the left, confident Clanker on the right, bright terminal cursor between them, empty top area for speech bubble.",
+      "shot": "medium",
+      "dialogue": [
+        {
+          "speaker": "dev",
+          "text": "WOW"
+        }
+      ]
     },
     {
-      "caption": "HOLY SHIT!",
-      "captionSpeaker": "dev",
-      "devPose": "overwhelmed",
-      "clankerPose": "overclocked",
-      "fx": ["sparks", "sweat"]
+      "artPrompt": "The neon terminal room becomes chaotic: Dev is overwhelmed with panic posture and sweat marks while Clanker overclocks with green sparks, screen eyes intense, terminal laptop erupts with sparse sparks.",
+      "composition": "Panicked Dev left foreground, overclocked Clanker right, sparks around the center laptop, empty top area for a large speech bubble.",
+      "shot": "medium",
+      "dialogue": [
+        {
+          "speaker": "dev",
+          "text": "HOLY SHIT!"
+        }
+      ]
     },
     {
-      "caption": "**dead**",
-      "devPose": "dead",
-      "clankerPose": "concerned",
-      "fx": ["smoke"]
+      "artPrompt": "Dev lies flat on the floor in cartoon burnout with X-eye energy while Clanker stands nearby looking concerned, smoke curls from the terminal laptop in a sparse black neon terminal room.",
+      "composition": "Collapsed Dev across the lower left, concerned Clanker on the right, smoky laptop in the middle, dark empty top area for caption.",
+      "shot": "wide",
+      "caption": "dead"
     },
     {
-      "caption": "Let's open nvim...",
-      "captionSpeaker": "dev",
-      "devPose": "resurrected-typing",
-      "clankerPose": "watching",
-      "fx": ["terminal-cursor", "boot"]
+      "artPrompt": "Dev has resurrected and is already typing at the laptop again with tired determination while Clanker watches silently, boot-up cursor and terminal line energy returning to the black neon room.",
+      "composition": "Dev seated left at laptop typing, Clanker watching on the right, terminal boot cursor centered, empty top area for speech bubble.",
+      "shot": "medium",
+      "dialogue": [
+        {
+          "speaker": "dev",
+          "text": "Let's open nvim..."
+        }
+      ],
+      "terminalLines": [
+        "$ nvim ."
+      ]
     }
   ]
 }

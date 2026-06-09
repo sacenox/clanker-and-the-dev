@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Clanker and the Dev favicon">
+  <rect x="3" y="3" width="58" height="58" rx="14" fill="#020806" stroke="#00ff66" stroke-width="4"/>
+
+  <!-- Dev face -->
+  <circle cx="22" cy="36" r="11" fill="#020806" stroke="#7cff8a" stroke-width="3"/>
+  <path d="M14 30c3-7 13-8 18-1" fill="none" stroke="#00ff66" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="15" y="34" width="6" height="4" rx="1" fill="none" stroke="#00ff66" stroke-width="2"/>
+  <rect x="23" y="34" width="6" height="4" rx="1" fill="none" stroke="#00ff66" stroke-width="2"/>
+  <path d="M21 36h2" stroke="#00ff66" stroke-width="2" stroke-linecap="round"/>
+  <path d="M18 43c2 2 6 2 8 0" fill="none" stroke="#7cff8a" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Clanker face -->
+  <path d="M45 18v-5" stroke="#00ff66" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="45" cy="11" r="2.5" fill="#7cff8a"/>
+  <rect x="34" y="23" width="22" height="22" rx="5" fill="#020806" stroke="#7cff8a" stroke-width="3"/>
+  <rect x="39" y="31" width="4" height="6" rx="1" fill="#00ff66"/>
+  <rect x="48" y="31" width="4" height="6" rx="1" fill="#00ff66"/>
+  <path d="M40 40h10" stroke="#7cff8a" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
