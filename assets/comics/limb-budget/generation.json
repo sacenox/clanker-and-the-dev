@@ -1,0 +1,29 @@
+{
+  "title": "Limb Budget",
+  "slug": "limb-budget",
+  "timestamp": "2026-06-09",
+  "modelId": "stabilityai/stable-diffusion-xl-base-1.0",
+  "ipAdapterRepo": "h94/IP-Adapter",
+  "ipAdapterWeight": "ip-adapter_sdxl.bin",
+  "ipAdapterScale": 0.82,
+  "referenceImages": [
+    "art-reference/training-reference.png",
+    "art-reference/ip-character-reference.png"
+  ],
+  "referenceCropMode": "auto",
+  "enableControlNet": true,
+  "controlNetModelId": "diffusers/controlnet-canny-sdxl-1.0",
+  "controlGuideMode": "layout",
+  "controlNetScale": 0.88,
+  "controlNetStart": 0.0,
+  "controlNetEnd": 0.9,
+  "artPostprocessMode": "terminal-lineart",
+  "lineArtThreshold": 112,
+  "lineArtStroke": 3,
+  "panelSeeds": [
+    1633277776,
+    2817340413,
+    2583630545,
+    1808476976
+  ]
+}

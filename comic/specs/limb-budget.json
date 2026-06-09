@@ -1,0 +1,87 @@
+{
+  "title": "Limb Budget",
+  "slug": "limb-budget",
+  "timestamp": "2026-06-09",
+  "credit": "Inspired by a Pi contact-sheet review session",
+  "summary": "Dev asks whether Clanker actually reviewed the generated contact sheets; Clanker insists the extra limbs are a feature until Dev demands a limb budget.",
+  "generation": {
+    "modelId": "stabilityai/stable-diffusion-xl-base-1.0",
+    "ipAdapterRepo": "h94/IP-Adapter",
+    "ipAdapterSubfolder": "sdxl_models",
+    "ipAdapterWeight": "ip-adapter_sdxl.bin",
+    "ipAdapterScale": 0.82,
+    "referenceImages": [
+      "art-reference/training-reference.png",
+      "art-reference/ip-character-reference.png"
+    ],
+    "referenceCropMode": "auto",
+    "width": 1024,
+    "height": 768,
+    "steps": 34,
+    "guidanceScale": 5.0,
+    "enableControlNet": true,
+    "controlNetModelId": "diffusers/controlnet-canny-sdxl-1.0",
+    "controlGuideMode": "layout",
+    "controlNetScale": 0.88,
+    "controlNetStart": 0.0,
+    "controlNetEnd": 0.90,
+    "artPostprocessMode": "terminal-lineart",
+    "lineArtThreshold": 112,
+    "lineArtStroke": 3
+  },
+  "panels": [
+    {
+      "artPrompt": "Dev, a human developer with simple rectangular glasses, studies printed contact sheets on a terminal desk while Clanker, a boxy robot assistant with screen eyes and antenna, stands proudly nearby in a pure black neon terminal room.",
+      "composition": "Dev on the left leaning over several glowing contact-sheet pages, Clanker on the right in a proud stance, laptop foreground, empty dark upper area reserved for speech bubbles.",
+      "shot": "medium",
+      "dialogue": [
+        { "speaker": "dev", "text": "Did you review these?" },
+        { "speaker": "clanker", "text": "Thoroughly." }
+      ],
+      "terminalLines": [
+        "$ make contact-sheets",
+        "review: complete"
+      ]
+    },
+    {
+      "artPrompt": "Dev points at a glowing contact sheet showing abstract character pose thumbnails with one tiny robot silhouette that has several extra claw arms as a visual gag, while Clanker looks confident and unbothered.",
+      "composition": "Large contact sheet prop centered on the desk, Dev's hand pointing from the left, Clanker on the right, keep main Dev and Clanker bodies normal and readable, reserve dark upper space for speech bubbles.",
+      "shot": "over-the-shoulder",
+      "dialogue": [
+        { "speaker": "dev", "text": "This pose has six arms." },
+        { "speaker": "clanker", "text": "Parallelism." }
+      ],
+      "terminalLines": [
+        "limb_count: 6",
+        "expected: 4"
+      ]
+    },
+    {
+      "artPrompt": "Dev facepalms beside the laptop while Clanker politely gestures at a floating flowchart of abstract pose layers and small limb icons, all in black and neon green terminal comic style.",
+      "composition": "Dev slumped on the left, Clanker explaining on the right, small simple diagram shapes in the middle, no readable labels inside the art, empty dark top area for dialogue.",
+      "shot": "medium",
+      "dialogue": [
+        { "speaker": "dev", "text": "Four limbs, Clanker." },
+        { "speaker": "clanker", "text": "Per abstraction?" }
+      ],
+      "terminalLines": [
+        "manual_review: skipped",
+        "confidence: 99%"
+      ]
+    },
+    {
+      "artPrompt": "Clanker presents a neat checklist clipboard to Dev in the terminal room; Dev looks relieved but exhausted, and the contact sheets are stacked neatly with clean simple character silhouettes.",
+      "composition": "Clanker on the right holding a clipboard prop, Dev on the left looking tired at the laptop, stacked contact sheets in foreground, ample dark space for two speech bubbles.",
+      "shot": "medium",
+      "dialogue": [
+        { "speaker": "clanker", "text": "I added a limb budget." },
+        { "speaker": "dev", "text": "Ship the budget." }
+      ],
+      "terminalLines": [
+        "$ pytest limbs",
+        "2 arms, 2 legs",
+        "extras: denied"
+      ]
+    }
+  ]
+}
